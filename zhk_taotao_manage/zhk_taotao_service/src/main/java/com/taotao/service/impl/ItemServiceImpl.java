@@ -1,8 +1,7 @@
 package com.taotao.service.impl;
 
+import java.util.Date;
 import java.util.List;
-
-import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +15,8 @@ import com.taotao.pojo.TbItemExample.Criteria;
 import com.taotao.service.ItemService;
 
 import zhk_taotao_common.ItemWrap;
+import zhk_taotao_util.IDUtils;
+import zhk_taotao_util.TaotaoResult;
 	
 @Service
 public class ItemServiceImpl implements ItemService{
@@ -49,6 +50,21 @@ public class ItemServiceImpl implements ItemService{
 		long total = pageInfo.getTotal();
 		itemWrap.setTotal(total);
 		return itemWrap;
+	}
+
+	@Override
+	public TaotaoResult addItem(TbItem item) {
+		// TODO Auto-generated method stub
+		Date createTime = new Date();
+		long itemId = IDUtils.genItemId();
+		System.out.println(itemId);
+		item.setId(itemId);
+		item.setStatus((byte)1);
+		item.setCreated(createTime);
+		item.setUpdated(createTime);
+		tbItemMapper.insert(item);
+		TaotaoResult ok = TaotaoResult.ok();
+		return ok;
 	}
 	
 }

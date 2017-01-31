@@ -21,7 +21,6 @@
 			<tx:method name="save*" propagation="REQUIRED" />  <!-- REQUIRED如果有事物在当前事物中执行，如果没有事物重新创建一个事物 -->
 			<tx:method name="insert*" propagation="REQUIRED" />
 			<tx:method name="add*" propagation="REQUIRED" />
-			<tx:method name="create*" propagation="REQUIRED" />
 			<tx:method name="delete*" propagation="REQUIRED" />
 			<tx:method name="update*" propagation="REQUIRED" />
 			<tx:method name="find*" propagation="SUPPORTS" read-only="true" /> <!-- SUPPORTS如果当前有事物，用当期的事物，如果没有不创建事物 -->

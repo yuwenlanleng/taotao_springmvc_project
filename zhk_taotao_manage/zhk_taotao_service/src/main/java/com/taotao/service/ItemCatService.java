@@ -6,5 +6,6 @@ import zhk_taotao_common.ItemCatWrap;
 
 public interface ItemCatService {
 	
-	public List<ItemCatWrap> getItemCatWrapByParentId(long parentId);
+	List<ItemCatWrap> getItemCatWrapByParentId(long parentId);
+	
 }

@@ -3,6 +3,7 @@ package com.taotao.service;
 import com.taotao.pojo.TbItem;
 
 import zhk_taotao_common.ItemWrap;
+import zhk_taotao_util.TaotaoResult;
 
 public interface ItemService {
 	/**
@@ -21,4 +22,12 @@ public interface ItemService {
 	 * @return
 	 */
 	public ItemWrap getItemList(int page, int rows);
+
+	/**
+	 * 添加商品
+	 * 
+	 * @param item
+	 * @return
+	 */
+	TaotaoResult addItem(TbItem item);
 }
