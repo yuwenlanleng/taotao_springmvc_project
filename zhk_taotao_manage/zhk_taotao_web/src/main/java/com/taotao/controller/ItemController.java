@@ -49,11 +49,12 @@ public class ItemController {
 	 * 
 	 * @param item
 	 * @return
+	 * @throws Exception 
 	 */
 	@RequestMapping(value="/item/save",method=RequestMethod.POST)
 	@ResponseBody
-	public TaotaoResult addItem(TbItem item) {
-		TaotaoResult addItem = itemService.addItem(item);
+	public TaotaoResult addItem(TbItem item,String desc,String itemParams) throws Exception {
+		TaotaoResult addItem = itemService.addItem(item,desc,itemParams);
 		return addItem;
 	}
 }

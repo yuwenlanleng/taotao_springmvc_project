@@ -28,6 +28,7 @@ public interface ItemService {
 	 * 
 	 * @param item
 	 * @return
+	 * @throws Exception 
 	 */
-	TaotaoResult addItem(TbItem item);
+	TaotaoResult addItem(TbItem item,String desc,String paramData) throws Exception;
 }
