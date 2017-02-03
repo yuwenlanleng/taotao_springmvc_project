@@ -15,8 +15,7 @@ import com.taotao.service.ItemCatService;
 import zhk_taotao_common.ItemCatWrap;
 
 @Service
-public class ItemCatServiceImpl implements ItemCatService
-{
+public class ItemCatServiceImpl implements ItemCatService {
 	@Autowired
 	private TbItemCatMapper tbItemCatMapper;
 
@@ -28,14 +27,26 @@ public class ItemCatServiceImpl implements ItemCatService
 		List<TbItemCat> tbItemCatList = tbItemCatMapper.selectByExample(tbItemCatExample);
 		List<ItemCatWrap> itemCatWrapList = new ArrayList<>();
 		for (TbItemCat tbItemCat : tbItemCatList) {
-			ItemCatWrap itemCatWrap =  new ItemCatWrap();
+			ItemCatWrap itemCatWrap = new ItemCatWrap();
 			itemCatWrap.setId(tbItemCat.getId());
 			itemCatWrap.setText(tbItemCat.getName());
-			itemCatWrap.setState(tbItemCat.getIsParent()?"closed":"open");
+			itemCatWrap.setState(tbItemCat.getIsParent() ? "closed" : "open");
 			itemCatWrapList.add(itemCatWrap);
 		}
 		return itemCatWrapList;
 	}
-	
-	
+
+	@Override
+	public TbItemCat getItemCatByCatId(long itemCatId) {
+		// TODO Auto-generated method stub
+		TbItemCatExample tbItemCatExample = new TbItemCatExample();
+		Criteria createCriteria = tbItemCatExample.createCriteria();
+		createCriteria.andIdEqualTo(itemCatId);
+		List<TbItemCat> result = tbItemCatMapper.selectByExample(tbItemCatExample);
+		if (result != null && result.size() > 0) {
+			return result.get(0);
+		}
+		return null;
+	}
+
 }
