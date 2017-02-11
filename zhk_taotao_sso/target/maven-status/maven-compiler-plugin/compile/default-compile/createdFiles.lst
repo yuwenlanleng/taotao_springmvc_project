@@ -1,0 +1,5 @@
+com\taotao\sso\dao\SingleRedisDao.class
+com\taotao\sso\service\UserLoginService.class
+com\taotao\sso\controller\UserController.class
+com\taotao\sso\dao\impl\SingleRedisDaoImpl.class
+com\taotao\sso\service\impl\UserLoginServiceImpl.class

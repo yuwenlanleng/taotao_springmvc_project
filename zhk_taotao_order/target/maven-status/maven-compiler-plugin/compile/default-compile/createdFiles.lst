@@ -1,0 +1,6 @@
+com\taotao\order\dao\impl\SingleRedisDaoImpl.class
+com\taotao\order\wrap\OrderWrap.class
+com\taotao\order\service\impl\OrderServiceImpl.class
+com\taotao\order\service\OrderService.class
+com\taotao\order\dao\SingleRedisDao.class
+com\taotao\order\controller\OrderController.class
