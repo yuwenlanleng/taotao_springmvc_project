@@ -4,19 +4,21 @@ var TTCart = {
 	},
 	itemNumChange : function(){
 		$(".increment").click(function(){//＋
+			debugger;
 			var _thisInput = $(this).siblings("input");
 			_thisInput.val(eval(_thisInput.val()) + 1);
-			$.post("/cart/update/num/"+_thisInput.attr("itemId")+"/"+_thisInput.val() + ".action",function(data){
+			$.post("/cart/update/increment.action?num=1&itemId="+_thisInput.attr("itemId"),function(data){
 				TTCart.refreshTotalPrice();
 			});
 		});
 		$(".decrement").click(function(){//-
+			debugger;
 			var _thisInput = $(this).siblings("input");
 			if(eval(_thisInput.val()) == 1){
 				return ;
 			}
 			_thisInput.val(eval(_thisInput.val()) - 1);
-			$.post("/cart/update/num/"+_thisInput.attr("itemId")+"/"+_thisInput.val() + ".action",function(data){
+			$.post("/cart/update/decrement.action?num=-1&itemId="+_thisInput.attr("itemId"),function(data){
 				TTCart.refreshTotalPrice();
 			});
 		});

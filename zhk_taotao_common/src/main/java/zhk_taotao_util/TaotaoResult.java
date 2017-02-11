@@ -1,7 +1,10 @@
 package zhk_taotao_util;
 
+import java.io.IOException;
 import java.util.List;
 
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -106,6 +109,7 @@ public class TaotaoResult {
             }
             return build(jsonNode.get("status").intValue(), jsonNode.get("msg").asText(), obj);
         } catch (Exception e) {
+        	e.printStackTrace();
             return null;
         }
     }
@@ -142,9 +146,24 @@ public class TaotaoResult {
                         MAPPER.getTypeFactory().constructCollectionType(List.class, clazz));
             }
             return build(jsonNode.get("status").intValue(), jsonNode.get("msg").asText(), obj);
-        } catch (Exception e) {
+        } catch (JsonParseException e) {
+        	System.out.println("这是json的错");
+        	e.printStackTrace();
             return null;
-        }
+        }catch (JsonMappingException e) {
+			// TODO: handle exception
+        	e.printStackTrace();
+        	return null;
+		} catch (IOException e) {
+			// TODO: handle exception
+			System.out.println("这是json的错");
+			e.printStackTrace();
+			return null;
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return null;
+		}
     }
 
 }

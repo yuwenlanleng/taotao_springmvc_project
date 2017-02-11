@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.taotao.rest.pojo.ItemCatWrap;
-import com.taotao.rest.service.ItemService;
+import com.taotao.rest.service.ItemCatService;
 
 @Controller
 public class ItemCatController {
 
 	@Autowired
-	private ItemService itemService;
+	private ItemCatService itemService;
 
 	/*
 	 * @RequestMapping(value="/itemcat/list",

@@ -1,6 +1,7 @@
 var TT = TAOTAO = {
 	checkLogin : function(){
-		var _ticket = $.cookie("TT_TOKEN");
+		var _ticket = $.cookie("TT_LOGIN_COOKIE");
+		debugger;
 		if(!_ticket){
 			return ;
 		}
@@ -21,5 +22,6 @@ var TT = TAOTAO = {
 
 $(function(){
 	// 查看是否已经登录，如果已经登录查询登录信息
+	debugger;
 	TT.checkLogin();
 });

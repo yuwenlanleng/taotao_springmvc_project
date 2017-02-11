@@ -28,24 +28,24 @@
     <div id="logo"><a href="/"><img src="/images/taotao-logo.gif" alt="淘淘商城"></a></div>
 </div>
 
-<form id="orderForm" class="hide" action="/order/create.html" method="post">
+<form id="orderForm" class="hide" action="/order/add.html" method="post">
 		<input type="hidden" name="paymentType" value="1"/>
 		<c:forEach items="${cartList }" var="cart" varStatus="status">
 			<c:set var="totalPrice"  value="${ totalPrice + (cart.price * cart.num)}"/>
-			<input type="hidden" name="orderItems[${status.index}].itemId" value="${cart.id}"/>
+			<input type="hidden" name="orderItems[${status.index}].itemId" value="${cart.itemId}"/>
 			<input type="hidden" name="orderItems[${status.index}].num" value="${cart.num }"/>
 			<input type="hidden" name="orderItems[${status.index}].price" value="${cart.price}"/>
 			<input type="hidden" name="orderItems[${status.index}].totalFee" value="${cart.price * cart.num}"/>
 			<input type="hidden" name="orderItems[${status.index}].title" value="${cart.title}"/>
-			<input type="hidden" name="orderItems[${status.index}].picPath" value="${cart.images[0]}"/>
+			<input type="hidden" name="orderItems[${status.index}].picPath" value="${cart.image}"/>
 		</c:forEach>
 		<input type="hidden" name="payment" value="<fmt:formatNumber groupingUsed="false" maxFractionDigits="2" minFractionDigits="2" value="${totalPrice/100 }"/>"/>
-		<input type="hidden" name="orderShipping.receiverName" value="入云龙"/>
-		<input type="hidden" name="orderShipping.receiverMobile" value="15891588888"/>
-		<input type="hidden" name="orderShipping.receiverState" value="北京"/>
-		<input type="hidden" name="orderShipping.receiverCity" value="北京"/>
-		<input type="hidden" name="orderShipping.receiverDistrict" value="昌平区"/>
-		<input type="hidden" name="orderShipping.receiverAddress" value="西三旗 xxxxxxxxx"/>
+		<input type="hidden" name="tbOrderShipping.receiverName" value="入云龙"/>
+		<input type="hidden" name="tbOrderShipping.receiverMobile" value="15891588888"/>
+		<input type="hidden" name="tbOrderShipping.receiverState" value="北京"/>
+		<input type="hidden" name="tbOrderShipping.receiverCity" value="北京"/>
+		<input type="hidden" name="tbOrderShipping.receiverDistrict" value="昌平区"/>
+		<input type="hidden" name="tbOrderShipping.receiverAddress" value="西三旗 xxxxxxxxx"/>
 </form>
 
 <!-- main -->
@@ -187,13 +187,13 @@
 		<div class="goods-item goods-item-extra">
 
 			<div class="p-img">
-				<a target="_blank" href="/item/${cart.id}.html">
-					<img src="${cart.images[0]}" alt="">
+				<a target="_blank" href="/item/${cart.itemId}.html">
+					<img src="${cart.image}" alt="">
 				</a>
 			</div>
 			<div class="goods-msg">
 				<div class="p-name">
-					<a href="/item/${cart.id}.html" target="_blank">
+					<a href="/item/${cart.itemId}.html" target="_blank">
 						${cart.title } 
 					</a>
 				</div>
